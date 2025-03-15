@@ -37,11 +37,37 @@ STEP 5:Normalizing the data<BR>
 STEP 6:Splitting the data into test and train<BR>
 
 ##  PROGRAM:
-TYPE YOUR CODE HERE
+~~~
+import numpy as np
+import pandas as pd
+from  sklearn.preprocessing   import MinMaxScaler
+from sklearn.model_selection import train_test_split
+df = pd.read_csv('Crop_recommendation_expanded.csv')
+df.head()
+df.info()
+df.describe()
+df.isnull().sum()
+df.duplicated()
+df  = df.drop(columns = ['label'])
+scalar = MinMaxScaler()
+df1 = pd.DataFrame(scalar.fit_transform(df))
+df1.head()
+X = df1.iloc[:,:-1]
+Y = df1.iloc[:,-1]
+x_train,x_test,y_train,y_test =train_test_split(X, Y, test_size=0.2, random_state=42)
+
+
+~~~
 
 
 ## OUTPUT:
-SHOW YOUR OUTPUT HERE
+![image](https://github.com/user-attachments/assets/0074ce92-7adf-406f-9a51-c57487face49)
+![image](https://github.com/user-attachments/assets/9248d85b-
+![image](https://github.com/user-attachments/assets/c891d30d-5193-49a5-b40b-8b8e96ac663f)
+
+![image](https://github.com/user-attachments/assets/24613e4f-c957-430f-820c-7594d0f8fa07)
+
+
 
 
 ## RESULT:
